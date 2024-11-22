@@ -35,6 +35,23 @@ document.getElementById('skip').addEventListener("click", function(){
 	video.currentTime += 10;
 });
 
+document.getElementById('mute').addEventListener("click", function(){
+	video.muted = !video.muted;
+});
+
+document.getElementById('slider').addEventListener("change", function(){
+	video.volume = this.value/100;
+	document.getElementById('volume').textContent = video.volume;
+})
+
+document.getElementById('vintage').addEventListener("click", function(){
+	document.getElementById('player1').classList.add('oldSchool');
+})
+
+document.getElementById('orig').addEventListener("click", function(){
+	document.getElementById('player1').classList.remove('oldSchool');
+})
+
 
 
 
