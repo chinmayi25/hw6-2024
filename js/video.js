@@ -21,22 +21,37 @@ document.getElementById('slower').addEventListener("click", function(){
 	const currentPlaybackRate = video.playbackRate;
   	const newPlaybackRate = currentPlaybackRate * (1 - (10/100));
   	video.playbackRate = newPlaybackRate;
-	console.log(newPlaybackRate)
+	console.log("Speed is " + video.playbackRate);
 });
 
 document.getElementById('faster').addEventListener("click", function(){
 	const currentPlaybackRate = video.playbackRate;
   	const newPlaybackRate = currentPlaybackRate * (1 + (10/100));
   	video.playbackRate = newPlaybackRate;
-	console.log(newPlaybackRate)
+	console.log("Speed is " + video.playbackRate);
 });
 
 document.getElementById('skip').addEventListener("click", function(){
-	video.currentTime += 10;
+	if (video.currentTime + 10 < video.duration) {
+		video.currentTime += 10;
+		console.log("Video Current Time is " + video.currentTime);
+	} else {
+		video.currentTime = 0;
+		console.log("Video Current Time is " + video.currentTime);
+	}
 });
 
 document.getElementById('mute').addEventListener("click", function(){
-	video.muted = !video.muted;
+	if (video.muted == false) {
+		video.muted = true;
+		console.log("Mute");
+		document.getElementById("mute").innerHTML = "Unmute";
+	}
+	else {
+		video.muted = false;
+		console.log("Unmute");
+		document.getElementById("mute").innerHTML = "Mute";
+	}
 });
 
 document.getElementById('slider').addEventListener("change", function(){
